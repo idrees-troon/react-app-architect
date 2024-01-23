@@ -1,4 +1,5 @@
 const USER = {
+    get_success:'Record fetched Successfully!',
     add_success: 'User record added successfully',
     edit_success: 'User record updated successfully',
     update_status_success: 'User status updated successfully',

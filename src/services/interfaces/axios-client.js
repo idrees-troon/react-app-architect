@@ -19,7 +19,7 @@ const notify = (message, toastId) => {
 
 const errorHandler = (error) => {
   // eslint-disable-next-line default-case
-  switch (error?.status || error.response.status) {
+  switch (error?.status || error.response.status ||  error.request.status) {
     case 200:
       if (error?.response?.status === 400) {
         toast.error(error?.response?.data?.error);
@@ -45,7 +45,9 @@ const errorHandler = (error) => {
       notify(error?.response?.data?.message, error.toString());
       break;
     case 404:
-      toast.error(error?.response?.statusText);
+      // console.log({error})
+      toast.error("Something Went Wrong");
+      // toast.error(error?.response?.statusText ?? "Something Went Wrong");
       break;
     case 415:
       toast.error(error?.response?.statusText);
