@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const api = axios.create({
+const axiosClient = axios.create({
   baseURL: 'https://reqres.in/api', // Replace with your API's base URL
   headers: {
     'Content-Type': 'application/json',
@@ -8,11 +8,15 @@ const api = axios.create({
 });
 
 // Request Interceptor
-api.interceptors.request.use(
+axiosClient.interceptors.request.use(
   (config) => {
+    // const jwt = store.getState()?.auth?.user?.data?.token;
+    // config.headers.Authorization = jwt ? `Bearer ${jwt}` : '';
+
     // Perform any actions before sending the request
     // For example, you can add authentication headers
     // or modify the request data
+
     return config;
   },
   (error) => {
@@ -22,7 +26,7 @@ api.interceptors.request.use(
 );
 
 // Response Interceptor
-api.interceptors.response.use(
+axiosClient.interceptors.response.use(
   (response) => {
     // Process successful responses
     // For example, you can normalize the response data
@@ -34,7 +38,8 @@ api.interceptors.response.use(
   }
 );
 
-export default api;
+export default axiosClient;
+// export { axiosClient };
 
 
 // In this example, the code sets up the base URL and default headers for your API requests. 

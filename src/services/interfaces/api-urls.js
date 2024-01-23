@@ -1,5 +1,5 @@
 const users = {
-  GET_ALL_USERS: "users/list",
+  GET_ALL_USERS: "users",
   UPDATE_USER_STATUS: "users/update-status",
   ADD_NEW_USER: "users/",
   UPDATE_USER: "users/",
@@ -8,3 +8,4 @@ const users = {
 };
 
 export { users };
+          
